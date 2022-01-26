@@ -3,11 +3,11 @@
     <output-path>$PROJECT_DIR$/out/artifacts/BruteCNDB_jar</output-path>
     <root id="archive" name="BruteCNDB.jar">
       <element id="module-output" name="BruteCNDB" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/oscarJDBC.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/kingbasejdbc.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/Dm8JdbcDriver.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kingbase8jdbc.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/commons-cli-1.5.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/oscarJDBC8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kingbase8-8.6.0.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

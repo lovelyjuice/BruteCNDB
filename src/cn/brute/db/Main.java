@@ -87,14 +87,14 @@ public class Main {
                     } catch (SQLException e) {
                         if (e.getCause() instanceof SocketTimeoutException) {
                             System.out.println("[x] Socket连接超时");
-                        } else if (e.getMessage().contains("不存在") && cmd.getOptionValue("dbms").contains("jc")) {
+                        } else if (e.getMessage().contains("不存在") && dbms.contains("jc")) {
                             // 金仓数据库密码正确但数据库名错误时会提示"xxx"数据库不存在
                             System.out.println(String.format("[!] Username: %s, password: %s", user, pwd));
                             availbleUserPasswords.put(user, pwd);
-                        } else if (e.getMessage().contains("timed out") && cmd.getOptionValue("dbms").contains("st")) {
+                        } else if (e.getMessage().contains("timed out") && dbms.equals("st")) {
                             // 神通数据库连接超时会报OSSQLException异常而不是java默认的SocketTimeoutException
                             System.out.println("[x] 连接神通数据库超时");
-                        } else if (e.getMessage().contains("用户") && e.getMessage().contains("不存在") && cmd.getOptionValue("dbms").contains("st")) {
+                        } else if (e.getMessage().contains("用户") && e.getMessage().contains("不存在") && dbms.equals("st")) {
                             /* 神通数据库可以枚举用户名，用户名不存在时异常信息中会有提示，
                             使用Iterator循环可以在检测到用户名不存在时将其从用户名列表中剔除，避免做无用功，
                             而ForEach循环就不能直接删除集合中的元素 */
@@ -109,6 +109,7 @@ public class Main {
             }
             if (availbleUserPasswords.isEmpty()) System.out.println("不好意思，没爆出来。。。");
             else {
+                System.out.println("所有爆破成功的用户名和密码：");
                 availbleUserPasswords.forEach((user, pwd) -> {
                     System.out.println("Username: " + user + "\tPassword:" + pwd);
                 });
